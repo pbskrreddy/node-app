@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('Build docker image'){
             steps{
-                sh "docker build -t pbskr/nodeapp:${DOCKER_TAG}"
+                sh "docker build -t pbskr/testcontainer:${DOCKER_TAG}"
 
             }
         }
