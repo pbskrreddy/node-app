@@ -10,9 +10,11 @@ pipeline {
             }
         }
         stage('Docker push'){
-            withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubpwd')]) {
-                sh "docker login -u pbskr -p ${dockerHubpwd}"
-                sh "docker push pbskr/nodeapp:${DOCKER_TAG}"
+            steps{
+                withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubpwd')]) {
+                    sh "docker login -u pbskr -p ${dockerHubpwd}"
+                    sh "docker push pbskr/nodeapp:${DOCKER_TAG}"
+                }
             }
             
         }
