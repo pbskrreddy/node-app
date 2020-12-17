@@ -6,9 +6,15 @@ pipeline {
     stages{
         stage('Build docker image'){
             steps{
-                sh "docker build . -t pbskr/testcontainer:${DOCKER_TAG}"
-
+                sh "docker build -t . pbskr/nodeapp:${DOCKER_TAG}"
             }
+        }
+        stage('Docker push'){
+            withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubpwd')]) {
+                sh "docker login -u pbskr -p ${dockerHubpwd}"
+                sh "docker push pbskr/nodeapp:${DOCKER_TAG}"
+            }
+            
         }
     }
 }
