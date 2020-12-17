@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: nodeapp
-      image: pbskr/nodeapp:tagVersion
+      image: pbskr/nodeapp:de1c933f1deabf80206abfff2ac9cf2799c99a3e
       ports:
         - containerPort: 8080
