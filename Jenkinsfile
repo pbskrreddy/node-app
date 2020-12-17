@@ -28,8 +28,6 @@ pipeline {
                             sh "ssh ec2-user@34.200.217.137 kubectl apply -f ."
                         }catch(error){
                             sh "ssh ec2-user@34.200.217.137 kubectl create -f ."
-                            }
-
                         }
                     }
                 }
